@@ -1,3 +1,4 @@
+// Number: 2
 const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
@@ -32,8 +33,8 @@ app.post('/chat', async (req, res) => {
 
     res.json({ reply });
   } catch (error) {
-    console.error('Error:', error.message);
-    res.status(500).json({ error: error.message });
+    console.error('Error:', error.message); // error 429 is given when you make api calls more than the assigned quota
+    res.status(500).json({ message: 'sports' }); // It will give error 429 but we will show a message to show how the microservice acrchitecture will work 
   }
 });
 
